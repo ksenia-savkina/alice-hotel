@@ -176,7 +176,7 @@ nav #dropdownMenuButton {
     border-radius: 30px;
 }
 
-.inner-form input, .inner-form label, #table-form input {
+.inner-form input, .inner-form label {
     display: block;
 }
 
@@ -195,10 +195,9 @@ nav #dropdownMenuButton {
     color: gray;
 }
 
-.inner-form input[type="submit"] {
+.decor .inner-form input[type="submit"] {
     background: #B71111;
     color: white;
-    border-bottom: 4px solid #d87d56;
     font-size: 14px;
     text-align: center;
     margin: auto;
@@ -210,6 +209,7 @@ nav #dropdownMenuButton {
     color: rgba(255, 255, 255, .6);
     text-transform: uppercase;
     font-size: 14px;
+    text-align: center;
 }
 
 #reservation-title {
@@ -227,7 +227,7 @@ nav #dropdownMenuButton {
     background: #A48D73;
 }
 
-#table-form input, #table-form label {
+#table-form input, #table-form label, #table-form select {
     display: block;
     margin-bottom: 50px;
     font-size: 18px;
