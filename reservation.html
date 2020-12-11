@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+
 <html lang="ru">
 
 <head>
@@ -15,6 +16,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
@@ -53,76 +57,73 @@
     </header>
 
     <div class="main">
-        <h4 id="reservation-title">Номера</h4>
-        <div class="container" id="list-container">
-            <div class="row">
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/standard_one-room.jpg" alt="стандартный однокомнатный">
-                        <span>
-                            <a href="#">стандартный однокомнатный</a>
-                        </span>
+        <h4 id="reservation-title">бронирование</h4>
+        <form name="reservationForm">
+            <div class="container" id="table-form">
+                <div class="row">
+                    <div class="col">
+                        <label>Дата заезда
+                            <input type="date" name="arrivalDate"> </label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/standard_two-room.jpg" alt="стандартный двухкомнатный">
-                        <span>
-                            <a href="#">стандартный двухкомнатный</a>
-                        </span>
+                    <div class="col">
+                        <label>Дата выезда
+                            <input type="date" name="departureDate"> </label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/standard_three-room.jpg" alt="стандартный трехкомнатный">
-                        <span>
-                            <a href="#">стандартный трехкомнатный</a>
-                        </span>
+                    <div class="col">
+                        <label>Фамилия
+                            <input type="text" maxlength="25" name="userSurname"> </label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/apartments.jpg" alt="апартаменты">
-                        <span>
-                            <a href="#">апартаменты</a>
-                        </span>
+                    <div class="col">
+                        <label>Имя
+                            <input type="text" maxlength="25" name="userName"> </label>
                     </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/two-story1.jpg" alt="двухэтажный №1">
-                        <span>
-                            <a href="#">двухэтажный №1</a>
-                        </span>
+                    <div class="col">
+                        <label>Телефон
+                            <input tel="text" maxlength="11" name="mobileNumber"> </label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/two-story2.jpg" alt="двухэтажный №2">
-                        <span>
-                            <a href="#">двухэтажный №2</a>
-                        </span>
+                    <div class="col">
+                        <label>E-mail
+                            <input type="email" maxlength="35" name="eMail"> </label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/one-room_jacuzzi.jpg" alt="однокомнатный с джакузи">
-                        <span>
-                            <a href="#">однокомнатный с джакузи</a>
-                        </span>
+                    <div class="col">
+                        <label>Число взрослых
+                            <input type="number" name="adultsNumber" min="1" max="6"> </label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card my-3">
-                        <img src="images/one-room_balcony.jpg" alt="однокомнатный с балконом">
-                        <span>
-                            <a href="#">однокомнатный с балконом</a>
-                        </span>
+                    <div class="col">
+                        <label>Число детей
+                            <input type="number" name="childrenNumber" min="0" max="6"> </label>
+                    </div>
+                    <div class="col">
+                        <label>Категория номера
+                            <select class="form-select" name="roomCategory">
+                                <option value="standardOneRoom" selected="selected">Стандартный однокомнатный</option>
+                                <option value="standardTwoRoom">Стандартный двухкомнатный</option>
+                                <option value="standardThreeRoom">Стандартный трехкомнатный</option>
+                                <option value="apartments">Апартаменты</option>
+                                <option value="twoStory1">Двухэтажный №1</option>
+                                <option value="twoStory2">Двухэтажный №2</option>
+                                <option value="oneRoomJacuzzi">Однокомнатный с джакузи</option>
+                                <option value="oneRoomBalcony">Однокомнатный с балконом</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col">
+                        <label>Питание
+                            <select class="form-select" name="foodType">
+                                <option value="withoutMeals" selected="selected">Без питания</option>
+                                <option value="onlyBreakfast">Только завтрак</option>
+                                <option value="breakfastDinner">Завтрак + ужин</option>
+                                <option value="BreakfastLunchDinner">Завтрак, обед, ужин</option>
+                            </select>
+                        </label>
                     </div>
                 </div>
             </div>
-        </div>
+            <div id="application">
+                <input type="submit" value="Отправить заявку" id="btn-application" name="requestSending">
+            </div>
+        </form>
+
     </div>
 
     <footer>
@@ -144,6 +145,7 @@
             </div>
         </div>
     </footer>
+    <script src="site.js"></script>
 </body>
 
 </html>
