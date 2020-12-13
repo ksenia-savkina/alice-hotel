@@ -49,7 +49,7 @@ function funcRequestSending(evt) {
     } else if (Date.parse(departureDateValue) <= Date.parse(arrivalDateValue)) {
         Swal.fire(
             'Ошибка!',
-            'Недопустимая дата выезда! Дата выезда должна минимум на один день больше, чем дата заезда.',
+            'Недопустимая дата выезда! Дата выезда должна быть минимум на один день больше, чем дата заезда.',
             'error'
         )
         console.log('Дата выезда меньше или равна дате заезда');
