@@ -35,10 +35,10 @@ function funcRequestSending(evt) {
     } else if (Date.parse(arrivalDateValue) < Date.now() || Date.parse(departureDateValue) < Date.now()) {
         Swal.fire(
             'Ошибка!',
-            'Недопустимая дата!',
+            'Недопустимая дата! Ближайшая доступная дата - завтрашний день.',
             'error'
         )
-        console.log('Дата введена неверно');
+        console.log('Дата выбрана в прошлом или на сегодняшний день');
     } else if (departureDateValue == "") {
         Swal.fire(
             'Ошибка!',
@@ -49,7 +49,7 @@ function funcRequestSending(evt) {
     } else if (Date.parse(departureDateValue) <= Date.parse(arrivalDateValue)) {
         Swal.fire(
             'Ошибка!',
-            'Недопустимая дата выезда!',
+            'Недопустимая дата выезда! Дата выезда должна минимум на один день больше, чем дата заезда.',
             'error'
         )
         console.log('Дата выезда меньше или равна дате заезда');
@@ -126,7 +126,7 @@ function funcRequestSending(evt) {
     } else if (adultsNumberValue <= 0 || childrenNumberValue < 0 || (+adultsNumberValue + +childrenNumberValue) > 6 || (adultsNumberValue <= 0 && childrenNumberValue > 0)) {
         Swal.fire(
             'Ошибка!',
-            'Недопустимое количество гостей!',
+            'Недопустимое количество гостей! Нельзя разместить в одном номере более шести человек. Обратите внимание, что условие бронирования - минимум 1 взрослый.',
             'error'
         )
         console.log('Количество гостей указано неверно');
